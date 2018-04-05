@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LinkTest</string>
+    <string name="captureSession">Capture</string>
+    <string name="tempo">tempo</string>
+</resources>
