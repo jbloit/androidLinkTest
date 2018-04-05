@@ -10,6 +10,15 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+set (LINK_DIR /Users/bloit/LIBS/link)
+set (ABL_LINK_DIR /Users/bloit/LIBS/abl_link)
+
+include(${LINK_DIR}/AbletonLinkConfig.cmake)
+
+include_directories(${ABL_LINK_DIR}/external/android-ifaddrs)
+include_directories(${LINK_DIR}/include)
+include_directories(${LINK_DIR}/modules/asio-standalone/asio/include)
+
 add_library( # Sets the name of the library.
              native-lib
 
@@ -18,13 +27,14 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
              src/main/cpp/native-lib.cpp
-             src/main/cpp/Dummy.cpp
+             src/main/cpp/LinkManager.cpp
              src/main/cpp/Foo.cpp
 
-
-
-
+             ${ABL_LINK_DIR}/external/android-ifaddrs/ifaddrs.cpp
              )
+target_compile_definitions(native-lib PRIVATE
+  ANDROID=1 LINK_PLATFORM_LINUX=1 PD=1 ABL_LINK_OFFSET_MS=23)
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -48,4 +58,6 @@ target_link_libraries( # Specifies the target library.
 
                        # Links the target library to the log library
                        # included in the NDK.
-                       ${log-lib} )
+                       ${log-lib}
+                       Ableton::Link
+                       )

@@ -5,16 +5,18 @@
 #ifndef LINKTEST_ANDROID_DUMMY_H
 #define LINKTEST_ANDROID_DUMMY_H
 #include "Foo.h"
+#include <ableton/Link.hpp>
 
-class Dummy {
+class LinkManager {
 
 public:
-    Dummy(double arg);
+    LinkManager();
     double getCount();
-
+    double getTempo();
 private:
     double count = 5;
     Foo foo;
+    ableton::Link link;
 };
 
 

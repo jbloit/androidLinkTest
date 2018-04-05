@@ -1,16 +1,34 @@
 #include <jni.h>
 #include <string>
-#include "Dummy.h"
+#include "LinkManager.h"
+
 extern "C"
 {
-    JNIEXPORT jdouble JNICALL
-    Java_com_jbloit_linktest_MainActivity_nativeGetTempo(
-            JNIEnv *env,
-            jobject /* this */) {
 
-//        Dummy* dummy = new Dummy();
-        Dummy dummy(44);
-        return dummy.getCount();
+JNIEXPORT jlong JNICALL
+Java_com_jbloit_linktest_LinkWrapper_nativeCreateLinkManager(
+        JNIEnv *env,
+        jobject /* this */) {
+
+    // We use std::nothrow so `new` returns a nullptr if the engine creation fails
+    LinkManager *manager = new(std::nothrow) LinkManager();
+    return (jlong) manager;
+}
+
+
+
+    JNIEXPORT jdouble JNICALL
+    Java_com_jbloit_linktest_LinkWrapper_nativeGetTempo(
+            JNIEnv *env,
+            jlong managerHandle) {
+
+        LinkManager *manager = (LinkManager *) managerHandle;
+        if (manager == nullptr) {
+
+            return 0;
+        }
+
+        return manager->getTempo();
     }
 
 

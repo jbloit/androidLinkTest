@@ -10,10 +10,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Example of a call to a native method
+        LinkWrapper.create()
 
         button.setOnClickListener {
-            val tempo = nativeGetTempo()
+            val tempo = LinkWrapper.getTempo()
             textView.text = "tempo : $tempo"
         }
     }
