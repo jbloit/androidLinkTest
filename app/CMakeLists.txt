@@ -11,11 +11,10 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 
 set (LINK_DIR /Users/bloit/LIBS/link)
-set (ABL_LINK_DIR /Users/bloit/LIBS/abl_link)
 
 include(${LINK_DIR}/AbletonLinkConfig.cmake)
 
-include_directories(${ABL_LINK_DIR}/external/android-ifaddrs)
+include_directories(src/main/cpp/android-ifaddrs)
 include_directories(${LINK_DIR}/include)
 include_directories(${LINK_DIR}/modules/asio-standalone/asio/include)
 
@@ -29,8 +28,7 @@ add_library( # Sets the name of the library.
              src/main/cpp/native-lib.cpp
              src/main/cpp/LinkManager.cpp
 
-
-             ${ABL_LINK_DIR}/external/android-ifaddrs/ifaddrs.cpp
+             src/main/cpp/android-ifaddrs/ifaddrs.cpp
              )
 target_compile_definitions(native-lib PRIVATE
   ANDROID=1 LINK_PLATFORM_LINUX=1 PD=1 ABL_LINK_OFFSET_MS=23)
