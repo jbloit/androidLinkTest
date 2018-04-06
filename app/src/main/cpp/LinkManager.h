@@ -13,10 +13,10 @@ class LinkManager {
 public:
     LinkManager();
     double getTempo();
+    void enable();
 private:
     Foo foo;
     ableton::Link link;
-
 };
 
 

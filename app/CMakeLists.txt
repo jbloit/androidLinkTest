@@ -10,8 +10,8 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-set (LINK_DIR /Users/julien/LIBS/link)
-set (ABL_LINK_DIR /Users/julien/LIBS/abl_link)
+set (LINK_DIR /Users/bloit/LIBS/link)
+set (ABL_LINK_DIR /Users/bloit/LIBS/abl_link)
 
 include(${LINK_DIR}/AbletonLinkConfig.cmake)
 

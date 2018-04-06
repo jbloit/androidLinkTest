@@ -23,9 +23,15 @@ object LinkWrapper {
         return 0.0
     }
 
+    fun setEnable() {
+        if (managerHandle != 0L) {
+            nativeEnable(managerHandle)
+        }
+    }
 
     external fun nativeCreateLinkManager(): Long
 
     // LINK API
     external fun nativeGetTempo(handle: Long): Double
+    external fun nativeEnable(handle: Long)
 }

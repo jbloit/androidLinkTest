@@ -8,11 +8,15 @@
 
 class Foo {
 public:
-    Foo(int arg);
-    int getCount();
+    Foo();
+    Foo(int tempo);
+    bool isEnabled();
+    void enable(bool flag);
+    int getTempo();
+    bool enabled;
 private:
 
-    int count = 0;
+    int tempo;
 };
 
 

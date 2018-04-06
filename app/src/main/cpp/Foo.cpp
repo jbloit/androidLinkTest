@@ -4,10 +4,23 @@
 
 #include "Foo.h"
 
-Foo::Foo(int arg) {
-    count = arg;
+Foo::Foo(): tempo(0) {
+    enabled = false;
 }
 
-int Foo::getCount() {
-    return count;
+Foo::Foo(int _tempo) {
+    enabled = false;
+    tempo = _tempo;
+}
+
+int Foo::getTempo() {
+    return tempo;
+}
+
+bool Foo::isEnabled() {
+    return enabled;
+}
+
+void Foo::enable(bool flag) {
+    enabled = flag;
 }
