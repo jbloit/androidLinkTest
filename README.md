@@ -38,3 +38,4 @@ Now try increasing or decreasing the tempo in LinkHut (w / e keys), and hit the 
 ```bash
 peers: 1 | quantum: 4 | start stop sync: off | tempo: 134 | beats: 65.568589 | XXOO
 ```
+![](https://github.com/jbloit/androidLinkTest/blob/master/Screenshot.png)
