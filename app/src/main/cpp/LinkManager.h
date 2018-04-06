@@ -6,7 +6,6 @@
 #define LINKTEST_ANDROID_DUMMY_H
 
 #include <ableton/Link.hpp>
-#include "Foo.h"
 
 class LinkManager {
 
@@ -15,9 +14,7 @@ public:
     double getTempo();
     void enable();
 private:
-    Foo foo;
     ableton::Link link;
 };
-
 
 #endif //LINKTEST_ANDROID_DUMMY_H
