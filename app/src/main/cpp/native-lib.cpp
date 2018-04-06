@@ -5,16 +5,15 @@
 extern "C"
 {
 
-JNIEXPORT jlong JNICALL
-Java_com_jbloit_linktest_LinkWrapper_nativeCreateLinkManager(
-        JNIEnv *env,
-        jobject /* this */) {
+    JNIEXPORT jlong JNICALL
+    Java_com_jbloit_linktest_LinkWrapper_nativeCreateLinkManager(
+            JNIEnv *env,
+            jclass) {
 
-    // We use std::nothrow so `new` returns a nullptr if the engine creation fails
-    LinkManager *manager = new(std::nothrow) LinkManager();
-    return (jlong) manager;
-}
-
+        // We use std::nothrow so `new` returns a nullptr if the engine creation fails
+        LinkManager *manager = new(std::nothrow) LinkManager();
+        return (jlong) manager;
+    }
 
 
     JNIEXPORT jdouble JNICALL

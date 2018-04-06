@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
      */
 
 
-    external fun nativeGetTempo(): Double
-
     companion object {
 
         // Used to load the 'native-lib' library on application startup.

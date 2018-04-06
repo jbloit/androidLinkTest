@@ -11,18 +11,21 @@ object LinkWrapper {
 
     fun create(): Boolean{
         if (managerHandle == 0L) {
-            managerHandle = native_createLinkManager()
+            managerHandle = nativeCreateLinkManager()
         }
         return managerHandle != 0L
     }
 
     fun getTempo(): Double {
-        return nativeGetTempo()
+        if (managerHandle != 0L) {
+            return nativeGetTempo(managerHandle)
+        }
+        return 0.0
     }
 
 
-    external fun native_createLinkManager(): Long
+    external fun nativeCreateLinkManager(): Long
 
     // LINK API
-    external fun nativeGetTempo(): Double
+    external fun nativeGetTempo(handle: Long): Double
 }
