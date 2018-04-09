@@ -4,7 +4,6 @@ package com.jbloit.linktest
  * Created by bloit on 05/04/2018.
  */
 
-
 object LinkWrapper {
 
     private var managerHandle: Long = 0
@@ -22,6 +21,12 @@ object LinkWrapper {
         }
         return 0.0
     }
+    fun getPhase(): Double {
+        if (managerHandle != 0L) {
+            return nativeGetPhase(managerHandle)
+        }
+        return 0.0
+    }
 
     fun setEnable() {
         if (managerHandle != 0L) {
@@ -33,5 +38,6 @@ object LinkWrapper {
 
     // LINK API
     external fun nativeGetTempo(handle: Long): Double
+    external fun nativeGetPhase(handle: Long): Double
     external fun nativeEnable(handle: Long)
 }

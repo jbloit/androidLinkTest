@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             val tempo = LinkWrapper.getTempo()
-            textView.text = "tempo : $tempo"
+            val phase = LinkWrapper.getPhase()
+            textView.text = "tempo : $tempo, phase: $phase"
         }
         button_enable.setOnClickListener {
             LinkWrapper.setEnable()

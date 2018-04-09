@@ -12,6 +12,7 @@ class LinkManager {
 public:
     LinkManager();
     double getTempo();
+    double getPhase();
     void enable();
 private:
     ableton::Link link;

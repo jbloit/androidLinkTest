@@ -36,4 +36,16 @@ extern "C"
             manager->enable();
         }
     }
+
+    JNIEXPORT jdouble JNICALL
+    Java_com_jbloit_linktest_LinkWrapper_nativeGetPhase(
+            JNIEnv *env,
+            jclass,
+            jlong managerHandle) {
+        LinkManager *manager = (LinkManager *) managerHandle;
+        if (manager == nullptr) {
+            return 0;
+        }
+        return manager->getPhase();
+    }
 }
