@@ -20,6 +20,12 @@ with the path to your local Link repo.
 5. Sync project with gradle files
 6. Build...
 
+## If importing Link to your own app
+Be sure to add this permission to the manifest, or link will silently fail.
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
 ## Test
 The LinkHut command line app is the most straightforward way of testing. Just follow the [build instructions](https://github.com/Ableton/link#building-and-running-link-examples) to install it on your machine. I usually test by first launching the LinkHut app, and then launch the Android app.
 
