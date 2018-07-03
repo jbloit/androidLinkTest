@@ -10,7 +10,12 @@ That's all. No audio.
 
 ## Building the app
 1. Make sure your setup can [build for NDK with Android Studio](https://developer.android.com/ndk/guides/index.html).  
-2. Clone the [Link repo](https://github.com/Ableton/link) somewhere on your machine.
+2. Clone the [Link repo](https://github.com/Ableton/link) with submodules somewhere on your machine.
+```bash
+git clone --recurse-submodules https://github.com/Ableton/link.git
+```
+
+
 3. In the app project folder, edit the ```app/CMakeLists.txt``` file and replace
 ```cmake
 set (LINK_DIR /Users/bloit/LIBS/link)
